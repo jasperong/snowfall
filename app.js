@@ -5,6 +5,8 @@
   var flakes = [];
   ctx.canvas.width  = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
+  var bg = new Image();
+  bg.src = 'xmas.jpg';
 
   function addFlake(){
     var x = Math.floor(Math.random() * canvas.width);
@@ -14,6 +16,7 @@
   }
 
   function drawSnow(){
+    addFlake();
     addFlake();
 
     for (var i = 0; i < flakes.length; i++) {
@@ -32,7 +35,8 @@
   }
 
   function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bg, 0, 0, bg.width, bg.height, 0, 0, canvas.width, canvas.height);
     drawSnow();
   }
 
